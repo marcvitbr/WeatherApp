@@ -11,9 +11,14 @@ final class DefaultHTTPClient: HTTPClient {
 
     private lazy var jsonDecoder = JSONDecoder()
 
-    func get<T: Decodable>(_ url: URL,
-                           parameters: [String: Any],
+    func get<T: Decodable>(_ endpoint: Endpoint,
                            resultHandler: @escaping (Result<T, Error>) -> ()) {
+
+        guard let url = endpoint.url else {
+
+            resultHandler(.failure(HTTPClientError.couldNotFormRequestURL))
+            return
+        }
 
         let session = URLSession.shared
 

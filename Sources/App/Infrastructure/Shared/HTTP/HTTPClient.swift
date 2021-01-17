@@ -9,7 +9,6 @@ import Foundation
 
 protocol HTTPClient {
 
-    func get<T: Decodable>(_ url: URL,
-                           parameters: [String: Any],
+    func get<T: Decodable>(_ endpoint: Endpoint,
                            resultHandler: @escaping (Result<T, Error>) -> ())
 }

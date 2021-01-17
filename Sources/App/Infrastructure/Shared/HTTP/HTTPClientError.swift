@@ -7,6 +7,7 @@
 
 enum HTTPClientError: Error {
 
+    case couldNotFormRequestURL
     case couldNotRetrieveDataFromServer
     case couldNotParseResponseJSON
 }
