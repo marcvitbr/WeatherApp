@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E016FA425B4C33300DD9580 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E016FA325B4C33300DD9580 /* HTTPClient.swift */; };
+		6E016FAA25B4C36C00DD9580 /* HTTPClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E016FA925B4C36C00DD9580 /* HTTPClientError.swift */; };
+		6E016FAE25B4C3D700DD9580 /* DefaultHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E016FAD25B4C3D700DD9580 /* DefaultHTTPClient.swift */; };
 		6E9080B825B39514008AEE80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9080B725B39514008AEE80 /* AppDelegate.swift */; };
 		6E9080BA25B39514008AEE80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9080B925B39514008AEE80 /* SceneDelegate.swift */; };
 		6E9080BC25B39514008AEE80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9080BB25B39514008AEE80 /* ViewController.swift */; };
@@ -41,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E016FA325B4C33300DD9580 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		6E016FA925B4C36C00DD9580 /* HTTPClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientError.swift; sourceTree = "<group>"; };
+		6E016FAD25B4C3D700DD9580 /* DefaultHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHTTPClient.swift; sourceTree = "<group>"; };
 		6E9080B425B39513008AEE80 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E9080B725B39514008AEE80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E9080B925B39514008AEE80 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +92,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E016FA025B49BAA00DD9580 /* FetchForecast */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FetchForecast;
+			sourceTree = "<group>";
+		};
+		6E016FA125B4C30C00DD9580 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				6E016FA225B4C31400DD9580 /* HTTP */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		6E016FA225B4C31400DD9580 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				6E016FAD25B4C3D700DD9580 /* DefaultHTTPClient.swift */,
+				6E016FA325B4C33300DD9580 /* HTTPClient.swift */,
+				6E016FA925B4C36C00DD9580 /* HTTPClientError.swift */,
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
 		6E9080AB25B39513008AEE80 = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +264,7 @@
 		6E90811425B479E4008AEE80 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				6E016FA125B4C30C00DD9580 /* Shared */,
 				6E90811525B479F8008AEE80 /* Forecast */,
 			);
 			path = Infrastructure;
@@ -241,6 +273,7 @@
 		6E90811525B479F8008AEE80 /* Forecast */ = {
 			isa = PBXGroup;
 			children = (
+				6E016FA025B49BAA00DD9580 /* FetchForecast */,
 				6E90811625B47A03008AEE80 /* Model */,
 			);
 			path = Forecast;
@@ -395,12 +428,15 @@
 			files = (
 				6E90813025B48C5C008AEE80 /* ForecastFetcher.swift in Sources */,
 				6E90813D25B48D27008AEE80 /* CityFixture.swift in Sources */,
+				6E016FA425B4C33300DD9580 /* HTTPClient.swift in Sources */,
 				6E9080BC25B39514008AEE80 /* ViewController.swift in Sources */,
 				6E9080B825B39514008AEE80 /* AppDelegate.swift in Sources */,
 				6ED2FED225B4906E0004C938 /* Weather.swift in Sources */,
 				6ED2FEDE25B490AC0004C938 /* TemperatureJSON.swift in Sources */,
+				6E016FAE25B4C3D700DD9580 /* DefaultHTTPClient.swift in Sources */,
 				6ED2FEE225B490C50004C938 /* WeatherJSON.swift in Sources */,
 				6E90812825B48C2B008AEE80 /* FetchForecast.swift in Sources */,
+				6E016FAA25B4C36C00DD9580 /* HTTPClientError.swift in Sources */,
 				6E90811825B47A3C008AEE80 /* ForecastJSON.swift in Sources */,
 				6ED2FECE25B4905A0004C938 /* Temperature.swift in Sources */,
 				6ED2FEDA25B4909B0004C938 /* DayJSON.swift in Sources */,
