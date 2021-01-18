@@ -13,7 +13,7 @@ struct Endpoint {
     let queryItems: [URLQueryItem]
 }
 
-extension Endpoint {
+extension Endpoint: Equatable {
 
     var url: URL? {
 
