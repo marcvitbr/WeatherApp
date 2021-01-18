@@ -11,8 +11,8 @@ final class DefaultHTTPClient: HTTPClient {
 
     private lazy var jsonDecoder = JSONDecoder()
 
-    func get<T: Decodable>(_ endpoint: Endpoint,
-                           resultHandler: @escaping (Result<T, Error>) -> ()) {
+    func get<T>(_ endpoint: Endpoint,
+                resultHandler: @escaping (Result<T, Error>) -> ()) where T: Decodable {
 
         guard let url = endpoint.url else {
 
