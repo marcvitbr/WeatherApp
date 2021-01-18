@@ -10,13 +10,13 @@ import XCTest
 
 final class FetchForecastTests: XCTestCase {
 
-    func test_fetchForecast_successfulFetch() {
+    func test_fetchForecast_callsForecastFetcher() {
 
         let fetcherSpy = ForecastFetcherSpy()
 
         let fetchForecast = FetchForecast(fetcher: fetcherSpy)
 
-        let exp = expectation(description: "Wait for ForecastFetcher execution")
+        let exp = expectation(description: "Wait for FetchForecast execution")
 
         fetchForecast.execute(with: .anyCity) { result in
 
