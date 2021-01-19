@@ -8,5 +8,5 @@
 struct Day {
 
     let temperature: Temperature
-    let weather: Weather
+    let weather: Weather?
 }
