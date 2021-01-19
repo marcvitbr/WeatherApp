@@ -1,19 +1,19 @@
 //
-//  DayJSON.swift
+//  CurrentDayJSON.swift
 //  WeatherApp
 //
-//  Created by Marcelo Vitoria on 17/01/2021.
+//  Created by Marcelo Vitoria on 19/01/2021.
 //
 
-struct DayJSON: Codable {
+struct CurrentDayJSON: Codable {
 
     let date: Double
-    let temperature: TemperatureJSON
+    let temperatureValue: Double
     let weathers: [WeatherJSON]
 
     enum CodingKeys: String, CodingKey {
         case date = "dt"
-        case temperature = "temp"
+        case temperatureValue = "temp"
         case weathers = "weather"
     }
 }

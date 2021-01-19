@@ -21,14 +21,13 @@ final class DefaultForecastConverterTests: XCTestCase {
         XCTAssertEqual(forecast.city.latitude, forecastJSON.latitude)
         XCTAssertEqual(forecast.city.longitude, forecastJSON.longitude)
 
-        XCTAssertNotNil(forecast.current)
-        XCTAssertEqual(forecast.current?.temperature.min, forecastJSON.days.first?.temperature.min)
-        XCTAssertEqual(forecast.current?.temperature.max, forecastJSON.days.first?.temperature.max)
+        XCTAssertEqual(forecast.current.temperatureValue, forecastJSON.currentDay.temperatureValue)
+        XCTAssertEqual(forecast.current.date, Date(timeIntervalSince1970: forecastJSON.currentDay.date))
 
-        XCTAssertNotNil(forecast.current?.weather)
-        XCTAssertEqual(forecast.current?.weather?.title, forecastJSON.days.first?.weathers.first?.title)
-        XCTAssertEqual(forecast.current?.weather?.description, forecastJSON.days.first?.weathers.first?.description)
-        XCTAssertEqual(forecast.current?.weather?.iconName, forecastJSON.days.first?.weathers.first?.iconName)
+        XCTAssertNotNil(forecast.current.weather)
+        XCTAssertEqual(forecast.current.weather?.title, forecastJSON.currentDay.weathers.first?.title)
+        XCTAssertEqual(forecast.current.weather?.description, forecastJSON.currentDay.weathers.first?.description)
+        XCTAssertEqual(forecast.current.weather?.iconName, forecastJSON.currentDay.weathers.first?.iconName)
 
         XCTAssertEqual(forecast.days.count, forecastJSON.days.count - 1)
     }
@@ -37,13 +36,22 @@ final class DefaultForecastConverterTests: XCTestCase {
 
         ForecastJSON(latitude: 9,
                      longitude: 8,
+                     currentDay: CurrentDayJSON(date: 1611086991,
+                                                temperatureValue: 12,
+                                                weathers: [
+                                                    WeatherJSON(title: "weather0",
+                                                                description: "weather0",
+                                                                iconName: "weather0"),
+                                                ]),
                      days: [
-                        DayJSON(temperature: TemperatureJSON(min: 1, max: 2),
+                        DayJSON(date:1611144000,
+                                temperature: TemperatureJSON(day: 1, min: 0, max: 2),
                                 weathers: [
                                     WeatherJSON(title: "weather1", description: "weather1", iconName: "weather1"),
                                     WeatherJSON(title: "weather2", description: "weather2", iconName: "weather2")
                                 ]),
-                        DayJSON(temperature: TemperatureJSON(min: 3, max: 4),
+                        DayJSON(date: 1611230400,
+                                temperature: TemperatureJSON(day: 3, min: 2, max: 4),
                                 weathers: [
                                     WeatherJSON(title: "weather3", description: "weather3", iconName: "weather3"),
                                     WeatherJSON(title: "weather4", description: "weather4", iconName: "weather4")

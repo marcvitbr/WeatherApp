@@ -5,6 +5,8 @@
 //  Created by Marcelo Vitoria on 19/01/2021.
 //
 
+import Foundation
+
 final class DefaultForecastConverter: ForecastConverter {
 
     func fromForecastJSON(_ forecastJSON: ForecastJSON) -> Forecast {
@@ -12,7 +14,7 @@ final class DefaultForecastConverter: ForecastConverter {
         let city = City(latitude: forecastJSON.latitude,
                         longitude: forecastJSON.longitude)
 
-        let currentDay = self.currentDayFromDaysJSON(forecastJSON.days)
+        let currentDay = self.currentDayFromCurrentDayJSON(forecastJSON.currentDay)
 
         let days = self.daysFromDaysJSON(forecastJSON.days)
 
@@ -21,15 +23,13 @@ final class DefaultForecastConverter: ForecastConverter {
                         days: days)
     }
 
-    private func currentDayFromDaysJSON(_ daysJSON: [DayJSON]) -> Day? {
-
-        guard let currentDayJSON = daysJSON.first else { return nil }
+    private func currentDayFromCurrentDayJSON(_ currentDayJSON: CurrentDayJSON) -> CurrentDay {
 
         let weather = self.weatherFromWeathersJSON(currentDayJSON.weathers)
 
-        return Day(temperature: Temperature(min: currentDayJSON.temperature.min,
-                                            max: currentDayJSON.temperature.max),
-                   weather: weather)
+        return CurrentDay(date: Date(timeIntervalSince1970: currentDayJSON.date),
+                          temperatureValue: currentDayJSON.temperatureValue,
+                          weather: weather)
     }
 
     private func weatherFromWeathersJSON(_ weathersJSON: [WeatherJSON]) -> Weather? {
@@ -45,7 +45,9 @@ final class DefaultForecastConverter: ForecastConverter {
 
         return daysJSON[1...].map {
 
-            Day(temperature: Temperature(min: $0.temperature.min,
+            Day(date: Date(timeIntervalSince1970: $0.date),
+                temperature: Temperature(actual: $0.temperature.day,
+                                         min: $0.temperature.min,
                                          max: $0.temperature.max),
                 weather: self.weatherFromWeathersJSON($0.weathers))
         }

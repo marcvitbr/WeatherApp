@@ -8,6 +8,6 @@
 struct Forecast {
 
     let city: City
-    let current: Day?
+    let current: CurrentDay
     let days: [Day]
 }

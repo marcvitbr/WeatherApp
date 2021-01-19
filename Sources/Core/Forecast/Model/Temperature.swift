@@ -7,6 +7,7 @@
 
 struct Temperature {
 
+    let actual: Double
     let min: Double
     let max: Double
 }

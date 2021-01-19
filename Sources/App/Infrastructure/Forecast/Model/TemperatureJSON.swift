@@ -7,6 +7,7 @@
 
 struct TemperatureJSON: Codable {
 
+    let day: Double
     let min: Double
     let max: Double
 }

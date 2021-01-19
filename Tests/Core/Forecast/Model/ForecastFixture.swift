@@ -10,6 +10,6 @@
 extension Forecast {
 
     static let anyForecast = Forecast(city: .anyCity,
-                                      current: nil,
+                                      current: .anyCurrentDay,
                                       days: [])
 }
