@@ -14,7 +14,7 @@ final class FetchForecast: ParameterizedUseCase {
         self.fetcher = fetcher
     }
 
-    func execute(with input: City, receiver: (ForecastFetcherResult) -> ()) {
+    func execute(with input: City, receiver: @escaping (ForecastFetcherResult) -> ()) {
 
         self.fetcher.fetchForecast(for: input,
                                    receiver: receiver)
