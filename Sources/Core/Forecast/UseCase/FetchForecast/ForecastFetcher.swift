@@ -14,5 +14,6 @@ enum ForecastFetcherError: Error {
 
 protocol ForecastFetcher {
 
-    func fetchForecast(for city: City, receiver: (ForecastFetcherResult) -> ())
+    func fetchForecast(for city: City,
+                       receiver: @escaping (ForecastFetcherResult) -> ())
 }
