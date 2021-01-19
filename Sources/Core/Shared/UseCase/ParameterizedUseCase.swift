@@ -10,5 +10,5 @@ protocol ParameterizedUseCase {
     associatedtype Input
     associatedtype Output
 
-    func execute(with input: Input, receiver: (Output) -> ())
+    func execute(with input: Input, receiver: @escaping (Output) -> ())
 }
