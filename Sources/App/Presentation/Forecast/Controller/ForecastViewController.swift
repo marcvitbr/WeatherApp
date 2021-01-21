@@ -16,10 +16,10 @@ class ForecastViewController: UIViewController {
     @IBOutlet weak var day3View: DayView!
     @IBOutlet weak var day4View: DayView!
 
-    private lazy var requestForecast: RequestForecast = {
+    private lazy var requestForecast: some RequestForecast = {
 
-        RequestForecast(fetcher: DefaultForecastFetcher(httpClient: DefaultHTTPClient(),
-                                                      forecastConverter: DefaultForecastConverter()))
+        RequestForecastExecutor(fetcher: DefaultForecastFetcher(httpClient: DefaultHTTPClient(),
+                                                                forecastConverter: DefaultForecastConverter()))
     }()
 
     private lazy var dateFormatter: DateFormatter = {
