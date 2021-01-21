@@ -53,6 +53,10 @@
 		6EFE132925BA060E00D787DA /* ForecastPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFE132825BA060E00D787DA /* ForecastPresenter.swift */; };
 		6EFE133025BA063E00D787DA /* ForecastPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFE132F25BA063E00D787DA /* ForecastPresenterTests.swift */; };
 		6EFE133625BA079C00D787DA /* ForecastScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFE133525BA079C00D787DA /* ForecastScreen.swift */; };
+		6EFE134625BA18EE00D787DA /* RequestForecastResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFE134525BA18EE00D787DA /* RequestForecastResult.swift */; };
+		6EFE134A25BA190400D787DA /* RequestForecastError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFE134925BA190400D787DA /* RequestForecastError.swift */; };
+		6EFE134E25BA192700D787DA /* ForecastFetcherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFE134D25BA192700D787DA /* ForecastFetcherResult.swift */; };
+		6EFE135425BA193900D787DA /* ForecastFetcherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFE135325BA193900D787DA /* ForecastFetcherError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +120,10 @@
 		6EFE132825BA060E00D787DA /* ForecastPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastPresenter.swift; sourceTree = "<group>"; };
 		6EFE132F25BA063E00D787DA /* ForecastPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastPresenterTests.swift; sourceTree = "<group>"; };
 		6EFE133525BA079C00D787DA /* ForecastScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastScreen.swift; sourceTree = "<group>"; };
+		6EFE134525BA18EE00D787DA /* RequestForecastResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestForecastResult.swift; sourceTree = "<group>"; };
+		6EFE134925BA190400D787DA /* RequestForecastError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestForecastError.swift; sourceTree = "<group>"; };
+		6EFE134D25BA192700D787DA /* ForecastFetcherResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastFetcherResult.swift; sourceTree = "<group>"; };
+		6EFE135325BA193900D787DA /* ForecastFetcherError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastFetcherError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,12 +144,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6E016FA025B49BAA00DD9580 /* FetchForecast */ = {
+		6E016FA025B49BAA00DD9580 /* RequestForecast */ = {
 			isa = PBXGroup;
 			children = (
 				6E016FB325B4C77000DD9580 /* DefaultForecastFetcher.swift */,
 			);
-			path = FetchForecast;
+			path = RequestForecast;
 			sourceTree = "<group>";
 		};
 		6E016FA125B4C30C00DD9580 /* Shared */ = {
@@ -193,17 +201,17 @@
 			isa = PBXGroup;
 			children = (
 				6E2F9C0225B76435004370EC /* Converter */,
-				6E016FBF25B4DAF600DD9580 /* FetchForecast */,
+				6E016FBF25B4DAF600DD9580 /* RequestForecast */,
 			);
 			path = Forecast;
 			sourceTree = "<group>";
 		};
-		6E016FBF25B4DAF600DD9580 /* FetchForecast */ = {
+		6E016FBF25B4DAF600DD9580 /* RequestForecast */ = {
 			isa = PBXGroup;
 			children = (
 				6E016FC025B4DB0700DD9580 /* DefaultForecastFetcherTests.swift */,
 			);
-			path = FetchForecast;
+			path = RequestForecast;
 			sourceTree = "<group>";
 		};
 		6E016FC625B4DD1B00DD9580 /* Shared */ = {
@@ -344,19 +352,19 @@
 			path = Forecast;
 			sourceTree = "<group>";
 		};
-		6E90810325B477F8008AEE80 /* FetchForecast */ = {
+		6E90810325B477F8008AEE80 /* RequestForecast */ = {
 			isa = PBXGroup;
 			children = (
-				6E90810725B47861008AEE80 /* RequestForecastTests.swift */,
 				6E90812225B48BBC008AEE80 /* ForecastFetcherSpy.swift */,
+				6E90810725B47861008AEE80 /* RequestForecastTests.swift */,
 			);
-			path = FetchForecast;
+			path = RequestForecast;
 			sourceTree = "<group>";
 		};
 		6E90810425B47820008AEE80 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				6E90810625B4783A008AEE80 /* FetchForecast */,
+				6E90810625B4783A008AEE80 /* RequestForecast */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -364,18 +372,22 @@
 		6E90810525B4782C008AEE80 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				6E90810325B477F8008AEE80 /* FetchForecast */,
+				6E90810325B477F8008AEE80 /* RequestForecast */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
 		};
-		6E90810625B4783A008AEE80 /* FetchForecast */ = {
+		6E90810625B4783A008AEE80 /* RequestForecast */ = {
 			isa = PBXGroup;
 			children = (
-				6E90812725B48C2B008AEE80 /* RequestForecast.swift */,
 				6E90812F25B48C5C008AEE80 /* ForecastFetcher.swift */,
+				6EFE135325BA193900D787DA /* ForecastFetcherError.swift */,
+				6EFE134D25BA192700D787DA /* ForecastFetcherResult.swift */,
+				6E90812725B48C2B008AEE80 /* RequestForecast.swift */,
+				6EFE134925BA190400D787DA /* RequestForecastError.swift */,
+				6EFE134525BA18EE00D787DA /* RequestForecastResult.swift */,
 			);
-			path = FetchForecast;
+			path = RequestForecast;
 			sourceTree = "<group>";
 		};
 		6E90811425B479E4008AEE80 /* Infrastructure */ = {
@@ -391,8 +403,8 @@
 			isa = PBXGroup;
 			children = (
 				6EBD0D9025B61E4D000B995C /* Converter */,
-				6E016FA025B49BAA00DD9580 /* FetchForecast */,
 				6E90811625B47A03008AEE80 /* Model */,
+				6E016FA025B49BAA00DD9580 /* RequestForecast */,
 			);
 			path = Forecast;
 			sourceTree = "<group>";
@@ -670,18 +682,22 @@
 				6E016FAE25B4C3D700DD9580 /* DefaultHTTPClient.swift in Sources */,
 				6ED4400D25B8C3CD00E652B3 /* ForecastViewController.swift in Sources */,
 				6E016FB425B4C77000DD9580 /* DefaultForecastFetcher.swift in Sources */,
+				6EFE134625BA18EE00D787DA /* RequestForecastResult.swift in Sources */,
+				6EFE134A25BA190400D787DA /* RequestForecastError.swift in Sources */,
 				6ED2FEE225B490C50004C938 /* WeatherJSON.swift in Sources */,
 				6E90812825B48C2B008AEE80 /* RequestForecast.swift in Sources */,
 				6E016FAA25B4C36C00DD9580 /* HTTPClientError.swift in Sources */,
 				6E2F9C2A25B7791D004370EC /* CurrentDay.swift in Sources */,
 				6E90811825B47A3C008AEE80 /* ForecastJSON.swift in Sources */,
 				6ED2FECE25B4905A0004C938 /* Temperature.swift in Sources */,
+				6EFE134E25BA192700D787DA /* ForecastFetcherResult.swift in Sources */,
 				6ED2FEDA25B4909B0004C938 /* DayJSON.swift in Sources */,
 				6ED4402125B8C92900E652B3 /* DayView.swift in Sources */,
 				6E2F9C2425B777CF004370EC /* CurrentDayJSON.swift in Sources */,
 				6E9080BA25B39514008AEE80 /* SceneDelegate.swift in Sources */,
 				6E9080FB25B476F8008AEE80 /* ParameterizedUseCase.swift in Sources */,
 				6ED2FECA25B490390004C938 /* Day.swift in Sources */,
+				6EFE135425BA193900D787DA /* ForecastFetcherError.swift in Sources */,
 				6EFE133625BA079C00D787DA /* ForecastScreen.swift in Sources */,
 				6ED2FED625B490800004C938 /* City.swift in Sources */,
 				6E90811025B4799D008AEE80 /* Forecast.swift in Sources */,
