@@ -8,17 +8,17 @@
 import XCTest
 @testable import WeatherApp
 
-final class FetchForecastTests: XCTestCase {
+final class RequestForecastTests: XCTestCase {
 
-    func test_fetchForecast_callsForecastFetcher() {
+    func test_requestForecast_callsForecastFetcher() {
 
         let fetcherSpy = ForecastFetcherSpy()
 
-        let fetchForecast = FetchForecast(fetcher: fetcherSpy)
+        let requestForecast = RequestForecast(fetcher: fetcherSpy)
 
         let exp = expectation(description: "Wait for FetchForecast execution")
 
-        fetchForecast.execute(with: .anyCity) { result in
+        requestForecast.execute(with: .anyCity) { result in
 
             exp.fulfill()
         }

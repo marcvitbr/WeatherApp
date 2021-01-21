@@ -1,11 +1,11 @@
 //
-//  FetchForecast.swift
+//  RequestForecast.swift
 //  WeatherApp
 //
 //  Created by Marcelo Vitoria on 17/01/2021.
 //
 
-final class FetchForecast: ParameterizedUseCase {
+final class RequestForecast: ParameterizedUseCase {
 
     private let fetcher: ForecastFetcher
 

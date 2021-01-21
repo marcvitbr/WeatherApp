@@ -16,9 +16,9 @@ class ForecastViewController: UIViewController {
     @IBOutlet weak var day3View: DayView!
     @IBOutlet weak var day4View: DayView!
 
-    private lazy var fetchForecast: FetchForecast = {
+    private lazy var requestForecast: RequestForecast = {
 
-        FetchForecast(fetcher: DefaultForecastFetcher(httpClient: DefaultHTTPClient(),
+        RequestForecast(fetcher: DefaultForecastFetcher(httpClient: DefaultHTTPClient(),
                                                       forecastConverter: DefaultForecastConverter()))
     }()
 
@@ -49,7 +49,7 @@ class ForecastViewController: UIViewController {
 
         let porto = City(latitude: 41.1552, longitude: -8.6326)
 
-        self.fetchForecast.execute(with: porto) { [weak self] result in
+        self.requestForecast.execute(with: porto) { [weak self] result in
 
             switch result {
 
