@@ -31,7 +31,7 @@ class ForecastViewController: UIViewController, DependencyReceiver {
         let copenhagen = InputCity(name: "Copenhagen", latitude: 55.6759, longitude: 12.5655)
         let moscow = InputCity(name: "Moscow", latitude: 55.7522, longitude: 37.6156)
 
-        self.presenter.fetchForecast(inputCity: tallinn)
+        self.presenter.fetchForecast(inputCity: moscow)
     }
 
 }

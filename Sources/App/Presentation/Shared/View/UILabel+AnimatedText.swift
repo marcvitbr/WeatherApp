@@ -11,16 +11,16 @@ extension UILabel {
 
     func setTextAnimated(_ text: String?) {
 
-        UIView.animate(withDuration: .textAnimationDuration) {
+        UIView.animate(withDuration: .textAnimationDuration) { [weak self] in
 
-            self.alpha = 0
-        } completion: { _ in
+            self?.alpha = 0
+        } completion: { [weak self] _ in
 
-            self.text = text
+            self?.text = text
 
             UIView.animate(withDuration: .textAnimationDuration) {
 
-                self.alpha = 1
+                self?.alpha = 1
             }
         }
     }
