@@ -12,7 +12,7 @@ final class CurrentDateFormatter {
     private lazy var dateFormatter: DateFormatter = {
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+        dateFormatter.dateFormat = "E, d MMM h:mm a"
         return dateFormatter
     }()
 
