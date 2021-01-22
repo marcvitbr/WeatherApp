@@ -13,5 +13,21 @@ final class DependencyConfigurator {
 
         let defaultHttpClient = DefaultHTTPClient()
         dependencies.register(HTTPClient.self, instance: defaultHttpClient)
+
+        dependencies.register(ForecastConverter.self) { () -> ForecastConverter in
+
+            DefaultForecastConverter()
+        }
+
+        dependencies.register(ForecastFetcher.self) { () -> ForecastFetcher in
+
+            DefaultForecastFetcher(httpClient: dependencies.instance(),
+                                   forecastConverter: dependencies.instance())
+        }
+
+        dependencies.register(RequestForecast.self) { () -> RequestForecast in
+
+            RequestForecastExecutor(fetcher: dependencies.instance())
+        }
     }
 }

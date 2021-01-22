@@ -9,8 +9,7 @@ protocol DependencyReceiver {}
 
 extension DependencyReceiver {
 
-    func instance<T>(of type: T.Type) -> T? {
-        
-        return DependencyProvider.shared.instance(of: T.self)
-    }
+    func instance<T>(of type: T.Type) -> T? { DependencyProvider.shared.instance(of: T.self) }
+
+    func instance<T>() -> T { DependencyProvider.shared.instance() }
 }

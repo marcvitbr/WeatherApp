@@ -35,4 +35,14 @@ final class DependencyProvider {
 
         return self.instances[typeDescription] as? T
     }
+
+    func instance<T>() -> T {
+
+        guard let instance = self.instance(of: T.self) else {
+
+            fatalError("Could not find instance for \(T.self)")
+        }
+
+        return instance
+    }
 }
