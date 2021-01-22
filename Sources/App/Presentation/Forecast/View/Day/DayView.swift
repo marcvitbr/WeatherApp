@@ -15,6 +15,9 @@ class DayView: UIView {
     @IBOutlet weak var maxTemperatureLabel: UILabel!
     @IBOutlet weak var minTemperatureLabel: UILabel!
 
+    private(set) lazy var weekdayFormatter = WeekdayFormatter()
+    private(set) lazy var temperatureFormatter = TemperatureFormatter()
+    
     required init?(coder aDecoder: NSCoder) {
 
         super.init(coder: aDecoder)
@@ -30,8 +33,6 @@ class DayView: UIView {
     private func initialize() {
 
         self.loadNib()
-
-        //self.configureProfilePictureImageView()
     }
 
     private func loadNib() {
