@@ -44,12 +44,18 @@
                                     <constraint firstAttribute="height" constant="400" id="5a5-pn-dvb"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="FHX-9Z-NA7">
+                                <rect key="frame" x="379" y="44" width="20" height="0.0"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AEu-TX-abF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="FHX-9Z-NA7" firstAttribute="top" secondItem="AEu-TX-abF" secondAttribute="top" id="QZq-ds-TEe"/>
                             <constraint firstItem="Dww-k0-WLE" firstAttribute="trailing" secondItem="AEu-TX-abF" secondAttribute="trailing" id="aG9-Hf-sWe"/>
-                            <constraint firstItem="Dww-k0-WLE" firstAttribute="top" secondItem="AEu-TX-abF" secondAttribute="top" id="eny-a8-uI4"/>
+                            <constraint firstItem="Dww-k0-WLE" firstAttribute="top" secondItem="FHX-9Z-NA7" secondAttribute="bottom" id="eny-a8-uI4"/>
+                            <constraint firstItem="AEu-TX-abF" firstAttribute="trailing" secondItem="FHX-9Z-NA7" secondAttribute="trailing" constant="15" id="evj-rr-TWo"/>
                             <constraint firstItem="AEu-TX-abF" firstAttribute="trailing" secondItem="5rs-nx-XOA" secondAttribute="trailing" id="jPj-AL-mDO"/>
                             <constraint firstItem="5rs-nx-XOA" firstAttribute="leading" secondItem="AEu-TX-abF" secondAttribute="leading" id="n38-E3-N4B"/>
                             <constraint firstAttribute="bottom" secondItem="5rs-nx-XOA" secondAttribute="bottom" id="q5g-Rf-vLA"/>
@@ -58,6 +64,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="FHX-9Z-NA7" id="lI9-2W-7Q6"/>
                         <outlet property="currentDayView" destination="Dww-k0-WLE" id="LJT-aV-k9J"/>
                         <outlet property="day1View" destination="X4c-dg-EpU" id="cID-Ws-JaG"/>
                         <outlet property="day2View" destination="SkB-LE-FJf" id="gOm-Bq-qFu"/>

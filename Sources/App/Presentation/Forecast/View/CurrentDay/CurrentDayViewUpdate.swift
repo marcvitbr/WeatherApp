@@ -7,14 +7,17 @@
 
 extension CurrentDayView {
 
-    func update(cityName: String, currentDay: CurrentDay) {
+    func update(cityName: String) {
 
         self.cityNameLabel.text = cityName
+    }
 
-        self.dateLabel.text = self.currentDateFormatter.string(from: currentDay.date)
+    func update(currentDay: CurrentDay) {
 
-        self.temperatureLabel.text = self.temperatureFormatter.string(from: currentDay.temperatureValue)
+        self.dateLabel.setTextAnimated(self.currentDateFormatter.string(from: currentDay.date))
 
-        self.weatherLabel.text = currentDay.weather?.title
+        self.temperatureLabel.setTextAnimated(self.temperatureFormatter.string(from: currentDay.temperatureValue))
+
+        self.weatherLabel.setTextAnimated(currentDay.weather?.title)
     }
 }

@@ -8,79 +8,30 @@
 import UIKit
 import Foundation
 
-class ForecastViewController: UIViewController {
+class ForecastViewController: UIViewController, DependencyReceiver {
 
     @IBOutlet weak var currentDayView: CurrentDayView!
     @IBOutlet weak var day1View: DayView!
     @IBOutlet weak var day2View: DayView!
     @IBOutlet weak var day3View: DayView!
     @IBOutlet weak var day4View: DayView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-    private lazy var requestForecast: some RequestForecast = {
+    private lazy var presenter: ForecastPresenter = {
 
-        RequestForecastExecutor(fetcher: DefaultForecastFetcher(httpClient: DefaultHTTPClient(),
-                                                                forecastConverter: DefaultForecastConverter()))
-    }()
-
-    private lazy var dateFormatter: DateFormatter = {
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
-        return dateFormatter
-    }()
-
-    private lazy var dayFormatter: DateFormatter = {
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEE"
-        return dateFormatter
-    }()
-
-    private lazy var numberFormatter: NumberFormatter = {
-
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .none
-        return numberFormatter
+        ForecastPresenter(requestForecast: self.instance(), screen: self)
     }()
 
     override func viewDidLoad() {
 
         super.viewDidLoad()
 
-        let porto = City(latitude: 41.1552, longitude: -8.6326)
+        let porto = InputCity(name: "Porto", latitude: 41.1552, longitude: -8.6326)
+        let tallinn = InputCity(name: "Tallinn", latitude: 59.437, longitude: 24.753)
+        let copenhagen = InputCity(name: "Copenhagen", latitude: 55.6759, longitude: 12.5655)
+        let moscow = InputCity(name: "Moscow", latitude: 55.7522, longitude: 37.6156)
 
-        self.requestForecast.execute(with: porto) { [weak self] result in
-
-            switch result {
-
-            case .success(let forecast):
-
-                DispatchQueue.main.async { self?.presentForecast(forecast) }
-            case .failure(let error):
-
-                print(error.localizedDescription)
-            }
-        }
+        self.presenter.fetchForecast(inputCity: tallinn)
     }
 
-    private func presentForecast(_ forecast: Forecast) {
-
-        self.currentDayView.cityNameLabel.text = "Porto"
-        self.currentDayView.dateLabel.text = self.dateFormatter.string(from: forecast.current.date)
-        self.currentDayView.temperatureLabel.text = (self.numberFormatter.string(from: NSNumber(value: forecast.current.temperatureValue)) ?? "") + "º"
-        self.currentDayView.weatherLabel.text = forecast.current.weather?.title ?? "--"
-
-        let daysViews = [self.day1View, self.day2View, self.day3View, self.day4View]
-
-        for i in 0..<daysViews.count {
-
-            let day = forecast.days[i]
-
-            guard let dayView = daysViews[i] else { continue }
-
-            dayView.weekDayLabel.text = self.dayFormatter.string(from: day.date).uppercased()
-            dayView.minTemperatureLabel.text = (self.numberFormatter.string(from: NSNumber(value: day.temperature.min)) ?? "") + "º"
-            dayView.maxTemperatureLabel.text = (self.numberFormatter.string(from: NSNumber(value: day.temperature.max)) ?? "") + "º"
-        }
-    }
 }
