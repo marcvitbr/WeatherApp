@@ -28,5 +28,5 @@ extension UILabel {
 
 private extension TimeInterval {
 
-    static let textAnimationDuration: TimeInterval = 0.2
+    static let textAnimationDuration: TimeInterval = 0.3
 }
