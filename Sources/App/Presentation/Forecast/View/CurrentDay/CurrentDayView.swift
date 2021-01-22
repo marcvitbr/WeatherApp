@@ -15,6 +15,9 @@ class CurrentDayView: UIView {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
 
+    private(set) lazy var currentDateFormatter = CurrentDateFormatter()
+    private(set) lazy var temperatureFormatter = TemperatureFormatter()
+    
     required init?(coder aDecoder: NSCoder) {
 
         super.init(coder: aDecoder)
@@ -30,8 +33,6 @@ class CurrentDayView: UIView {
     private func initialize() {
 
         self.loadNib()
-
-        //self.configureProfilePictureImageView()
     }
 
     private func loadNib() {
