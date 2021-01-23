@@ -14,6 +14,10 @@ I decided not to use any external dependencies, and therefore I'm not using any 
 
 I used [this design](https://dribbble.com/kolage/projects/48364--Kelvin-The-Weather-App) as an inspiration for the UI. Especially the font style & colors.
 
+The result was this:
+
+![screenshot](screenshot.png)
+
 ## Linter
 
 I used [SwiftLint](https://github.com/realm/SwiftLint) to enforce style and conventions.
