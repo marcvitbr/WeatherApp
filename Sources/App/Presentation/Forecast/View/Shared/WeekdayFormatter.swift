@@ -16,8 +16,10 @@ final class WeekdayFormatter {
         return dateFormatter
     }()
 
-    func string(from date: Date) -> String {
+    func string(from date: Date, timezone: TimeZone) -> String {
 
-        self.dayFormatter.string(from: date)
+        self.dayFormatter.timeZone = timezone
+
+        return self.dayFormatter.string(from: date)
     }
 }

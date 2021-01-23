@@ -5,6 +5,8 @@
 //  Created by Marcelo Vitoria on 21/01/2021.
 //
 
+import Foundation
+
 protocol ForecastScreen: AnyObject {
 
     func showActivityIndicator()
@@ -15,7 +17,7 @@ protocol ForecastScreen: AnyObject {
 
     func updateCurrentDay(_ currentDay: CurrentDay)
 
-    func updateDays(_ days: [Day])
+    func updateDays(_ days: [Day], timezone: TimeZone)
 
     func showRequestErrorMessage()
 }

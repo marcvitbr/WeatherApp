@@ -11,6 +11,7 @@ import Foundation
 extension CurrentDay {
 
     static let anyCurrentDay = CurrentDay(date: Date(),
+                                          timezone: TimeZone.current,
                                           temperatureValue: 0,
                                           weather: nil)
 }

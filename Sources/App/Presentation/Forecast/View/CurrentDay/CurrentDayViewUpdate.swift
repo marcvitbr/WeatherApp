@@ -14,7 +14,8 @@ extension CurrentDayView {
 
     func update(currentDay: CurrentDay) {
 
-        self.dateLabel.setTextAnimated(self.currentDateFormatter.string(from: currentDay.date))
+        self.dateLabel.setTextAnimated(self.currentDateFormatter.string(from: currentDay.date,
+                                                                        timezone: currentDay.timezone))
 
         self.temperatureLabel.setTextAnimated(self.temperatureFormatter.string(from: currentDay.temperatureValue))
 

@@ -23,6 +23,7 @@ final class DefaultForecastConverterTests: XCTestCase {
 
         XCTAssertEqual(forecast.current.temperatureValue, forecastJSON.currentDay.temperatureValue)
         XCTAssertEqual(forecast.current.date, Date(timeIntervalSince1970: forecastJSON.currentDay.date))
+        XCTAssertEqual(forecast.current.timezone.identifier, forecastJSON.timezone)
 
         XCTAssertNotNil(forecast.current.weather)
         XCTAssertEqual(forecast.current.weather?.title, forecastJSON.currentDay.weathers.first?.title)
@@ -36,6 +37,7 @@ final class DefaultForecastConverterTests: XCTestCase {
 
         ForecastJSON(latitude: 9,
                      longitude: 8,
+                     timezone: TimeZone.current.identifier,
                      currentDay: CurrentDayJSON(date: 1611086991,
                                                 temperatureValue: 12,
                                                 weathers: [

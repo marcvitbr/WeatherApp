@@ -22,7 +22,8 @@ final class ForecastPresenter {
 
         self.screen?.showActivityIndicator()
 
-        let city = City(latitude: inputCity.latitude, longitude: inputCity.longitude)
+        let city = City(latitude: inputCity.latitude,
+                        longitude: inputCity.longitude)
 
         self.requestForecast.execute(with: city) { [weak self] result in
 
@@ -33,7 +34,9 @@ final class ForecastPresenter {
             case .success(let forecast):
 
                 self.screen?.updateCurrentDay(forecast.current)
-                self.screen?.updateDays(forecast.days)
+
+                self.screen?.updateDays(forecast.days,
+                                        timezone: forecast.current.timezone)
             case .failure(let error):
 
                 print(error.localizedDescription)

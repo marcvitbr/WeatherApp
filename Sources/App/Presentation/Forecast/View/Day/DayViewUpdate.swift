@@ -5,11 +5,14 @@
 //  Created by Marcelo Vitoria on 22/01/2021.
 //
 
+import Foundation
+
 extension DayView {
 
-    func update(_ day: Day) {
+    func update(_ day: Day, timezone: TimeZone) {
 
-        self.weekDayLabel.setTextAnimated(self.weekdayFormatter.string(from: day.date))
+        self.weekDayLabel.setTextAnimated(self.weekdayFormatter.string(from: day.date,
+                                                                       timezone: timezone))
 
         self.maxTemperatureLabel.setTextAnimated(self.temperatureFormatter.string(from: day.temperature.max))
 

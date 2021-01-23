@@ -29,7 +29,7 @@ extension ForecastViewController: ForecastScreen {
         DispatchQueue.main.async { self.currentDayView.update(currentDay: currentDay) }
     }
 
-    func updateDays(_ days: [Day]) {
+    func updateDays(_ days: [Day], timezone: TimeZone) {
 
         DispatchQueue.main.async {
 
@@ -44,7 +44,7 @@ extension ForecastViewController: ForecastScreen {
 
                 guard let dayView = daysViews[i] else { continue }
 
-                dayView.update(days[i])
+                dayView.update(days[i], timezone: timezone)
             }
         }
     }

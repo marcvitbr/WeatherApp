@@ -5,6 +5,7 @@
 //  Created by Marcelo Vitoria on 22/01/2021.
 //
 
+import Foundation
 @testable import WeatherApp
 
 final class ForecastScreenSpy: ForecastScreen {
@@ -41,7 +42,7 @@ final class ForecastScreenSpy: ForecastScreen {
         self.updateCityNameCount += 1
     }
 
-    func updateDays(_ days: [Day]) {
+    func updateDays(_ days: [Day], timezone: TimeZone) {
 
         self.updateDaysCount += 1
     }

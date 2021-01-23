@@ -16,8 +16,10 @@ final class CurrentDateFormatter {
         return dateFormatter
     }()
 
-    func string(from currentDate: Date) -> String {
+    func string(from currentDate: Date, timezone: TimeZone) -> String {
 
-        self.dateFormatter.string(from: currentDate)
+        self.dateFormatter.timeZone = timezone
+
+        return self.dateFormatter.string(from: currentDate)
     }
 }

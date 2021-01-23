@@ -10,6 +10,7 @@ import Foundation
 struct CurrentDay {
 
     let date: Date
+    let timezone: TimeZone
     let temperatureValue: Double
     let weather: Weather?
 }

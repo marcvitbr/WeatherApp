@@ -14,7 +14,8 @@ final class DefaultForecastConverter: ForecastConverter {
         let city = City(latitude: forecastJSON.latitude,
                         longitude: forecastJSON.longitude)
 
-        let currentDay = self.currentDayFromCurrentDayJSON(forecastJSON.currentDay)
+        let currentDay = self.currentDayFromCurrentDayJSON(forecastJSON.currentDay,
+                                                           timezone: forecastJSON.timezone)
 
         let days = self.daysFromDaysJSON(forecastJSON.days)
 
@@ -23,11 +24,14 @@ final class DefaultForecastConverter: ForecastConverter {
                         days: days)
     }
 
-    private func currentDayFromCurrentDayJSON(_ currentDayJSON: CurrentDayJSON) -> CurrentDay {
+    private func currentDayFromCurrentDayJSON(_ currentDayJSON: CurrentDayJSON, timezone: String) -> CurrentDay {
+
+        let timezone = TimeZone(identifier: timezone) ?? TimeZone.current
 
         let weather = self.weatherFromWeathersJSON(currentDayJSON.weathers)
 
         return CurrentDay(date: Date(timeIntervalSince1970: currentDayJSON.date),
+                          timezone: timezone,
                           temperatureValue: currentDayJSON.temperatureValue,
                           weather: weather)
     }
