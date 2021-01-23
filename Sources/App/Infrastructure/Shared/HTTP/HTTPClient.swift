@@ -10,5 +10,5 @@ import Foundation
 protocol HTTPClient {
 
     func get<T>(_ endpoint: Endpoint,
-                resultHandler: @escaping (Result<T, Error>) -> ()) where T: Decodable
+                resultHandler: @escaping (Result<T, Error>) -> Void) where T: Decodable
 }

@@ -18,7 +18,7 @@ final class RequestForecastExecutorTests: XCTestCase {
 
         let exp = expectation(description: "Wait for FetchForecast execution")
 
-        requestForecast.execute(with: .anyCity) { result in
+        requestForecast.execute(with: .anyCity) { _ in
 
             exp.fulfill()
         }

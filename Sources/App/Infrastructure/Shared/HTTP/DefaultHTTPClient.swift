@@ -12,7 +12,7 @@ final class DefaultHTTPClient: HTTPClient {
     private lazy var jsonDecoder = JSONDecoder()
 
     func get<T>(_ endpoint: Endpoint,
-                resultHandler: @escaping (Result<T, Error>) -> ()) where T: Decodable {
+                resultHandler: @escaping (Result<T, Error>) -> Void) where T: Decodable {
 
         guard let url = endpoint.url else {
 
@@ -22,7 +22,7 @@ final class DefaultHTTPClient: HTTPClient {
 
         let session = URLSession.shared
 
-        session.dataTask(with: url) { [weak self] data, response, error in
+        session.dataTask(with: url) { [weak self] data, _, _ in
 
             guard let data = data else {
 

@@ -14,7 +14,7 @@ final class HTTPClientSpy: HTTPClient {
     var getReturn: Decodable?
     private(set) var getEndpoint: Endpoint?
 
-    func get<T>(_ endpoint: Endpoint, resultHandler: @escaping (Result<T, Error>) -> ()) where T : Decodable {
+    func get<T>(_ endpoint: Endpoint, resultHandler: @escaping (Result<T, Error>) -> Void) where T: Decodable {
 
         self.getCount += 1
 

@@ -13,7 +13,7 @@ final class RequestForecastSpy: RequestForecast {
 
     var executeReturn: RequestForecastResult = .failure(RequestForecastError.couldNotObtainForecast)
 
-    func execute(with input: City, receiver: @escaping (RequestForecastResult) -> ()) {
+    func execute(with input: City, receiver: @escaping (RequestForecastResult) -> Void) {
 
         self.executeCount += 1
         receiver(self.executeReturn)

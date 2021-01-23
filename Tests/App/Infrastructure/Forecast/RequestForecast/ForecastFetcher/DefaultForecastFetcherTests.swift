@@ -20,7 +20,7 @@ final class DefaultForecastFetcherTests: XCTestCase {
 
         let exp = expectation(description: "Wait for DefaultForecastFetcher execution")
 
-        fetcher.fetchForecast(for: .anyCity) { result in
+        fetcher.fetchForecast(for: .anyCity) { _ in
 
             exp.fulfill()
         }
@@ -42,7 +42,7 @@ final class DefaultForecastFetcherTests: XCTestCase {
 
         let exp = expectation(description: "Wait for DefaultForecastFetcher execution")
 
-        fetcher.fetchForecast(for: .anyCity) { result in
+        fetcher.fetchForecast(for: .anyCity) { _ in
 
             exp.fulfill()
         }

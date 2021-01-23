@@ -14,7 +14,7 @@ final class RequestForecastExecutor: RequestForecast {
         self.fetcher = fetcher
     }
 
-    func execute(with input: City, receiver: @escaping (RequestForecastResult) -> ()) {
+    func execute(with input: City, receiver: @escaping (RequestForecastResult) -> Void) {
 
         self.fetcher.fetchForecast(for: input) { result in
 

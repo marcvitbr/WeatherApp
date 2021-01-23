@@ -30,10 +30,10 @@ extension UIImageView {
 
     private func setImageAnimated(_ image: UIImage) {
 
-        UIView.animate(withDuration: .imageAnimationDuration) { [weak self] in
+        UIView.animate(withDuration: .imageAnimationDuration, animations: { [weak self] in
 
             self?.alpha = 0
-        } completion: { [weak self] _ in
+        }, completion: { [weak self] _ in
 
             self?.image = image
 
@@ -41,7 +41,7 @@ extension UIImageView {
 
                 self?.alpha = 1
             }
-        }
+        })
     }
 }
 

@@ -8,5 +8,5 @@
 protocol ForecastFetcher {
 
     func fetchForecast(for city: City,
-                       receiver: @escaping (ForecastFetcherResult) -> ())
+                       receiver: @escaping (ForecastFetcherResult) -> Void)
 }

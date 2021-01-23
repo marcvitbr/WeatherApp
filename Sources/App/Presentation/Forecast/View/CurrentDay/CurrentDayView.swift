@@ -17,7 +17,7 @@ class CurrentDayView: UIView {
 
     private(set) lazy var currentDateFormatter = CurrentDateFormatter()
     private(set) lazy var temperatureFormatter = TemperatureFormatter()
-    
+
     required init?(coder aDecoder: NSCoder) {
 
         super.init(coder: aDecoder)

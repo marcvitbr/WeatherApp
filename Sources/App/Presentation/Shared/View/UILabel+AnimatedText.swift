@@ -11,10 +11,10 @@ extension UILabel {
 
     func setTextAnimated(_ text: String?) {
 
-        UIView.animate(withDuration: .textAnimationDuration) { [weak self] in
+        UIView.animate(withDuration: .textAnimationDuration, animations: { [weak self] in
 
             self?.alpha = 0
-        } completion: { [weak self] _ in
+        }, completion: { [weak self] _ in
 
             self?.text = text
 
@@ -22,7 +22,7 @@ extension UILabel {
 
                 self?.alpha = 1
             }
-        }
+        })
     }
 }
 

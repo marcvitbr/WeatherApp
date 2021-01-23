@@ -17,7 +17,7 @@ class DayView: UIView {
 
     private(set) lazy var weekdayFormatter = WeekdayFormatter()
     private(set) lazy var temperatureFormatter = TemperatureFormatter()
-    
+
     required init?(coder aDecoder: NSCoder) {
 
         super.init(coder: aDecoder)

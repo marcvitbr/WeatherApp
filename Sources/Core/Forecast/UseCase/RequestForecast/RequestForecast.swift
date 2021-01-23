@@ -7,5 +7,5 @@
 
 protocol RequestForecast {
 
-    func execute(with input: City, receiver: @escaping (RequestForecastResult) -> ())
+    func execute(with input: City, receiver: @escaping (RequestForecastResult) -> Void)
 }

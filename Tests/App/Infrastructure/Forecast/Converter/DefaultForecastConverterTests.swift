@@ -41,10 +41,10 @@ final class DefaultForecastConverterTests: XCTestCase {
                                                 weathers: [
                                                     WeatherJSON(title: "weather0",
                                                                 description: "weather0",
-                                                                iconName: "weather0"),
+                                                                iconName: "weather0")
                                                 ]),
                      days: [
-                        DayJSON(date:1611144000,
+                        DayJSON(date: 1611144000,
                                 temperature: TemperatureJSON(day: 1, min: 0, max: 2),
                                 weathers: [
                                     WeatherJSON(title: "weather1", description: "weather1", iconName: "weather1"),

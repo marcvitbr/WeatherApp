@@ -16,7 +16,7 @@ final class DefaultForecastFetcher: ForecastFetcher {
         self.forecastConverter = forecastConverter
     }
 
-    func fetchForecast(for city: City, receiver: @escaping (ForecastFetcherResult) -> ()) {
+    func fetchForecast(for city: City, receiver: @escaping (ForecastFetcherResult) -> Void) {
 
         self.httpClient.get(.forecast(for: city)) { [weak self] (result: Result<ForecastJSON, Error>) in
 

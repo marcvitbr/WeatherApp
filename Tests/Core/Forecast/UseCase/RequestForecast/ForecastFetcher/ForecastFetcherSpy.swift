@@ -13,7 +13,7 @@ final class ForecastFetcherSpy: ForecastFetcher {
 
     var fetchForecastReturn: ForecastFetcherResult = .failure(ForecastFetcherError.couldNotFetchForecast)
 
-    func fetchForecast(for city: City, receiver: (ForecastFetcherResult) -> ()) {
+    func fetchForecast(for city: City, receiver: (ForecastFetcherResult) -> Void) {
 
         self.fetchForecastCount += 1
         receiver(self.fetchForecastReturn)
