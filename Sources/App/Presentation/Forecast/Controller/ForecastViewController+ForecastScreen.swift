@@ -65,6 +65,13 @@ extension ForecastViewController: ForecastScreen {
                                       message: "Sorry, we could not obtain the forecast. Please try again later.",
                                       preferredStyle: .alert)
 
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
+
+                alert.dismiss(animated: true, completion: nil)
+            })
+
+            alert.addAction(okAction)
+
             self.present(alert, animated: true, completion: nil)
         }
     }
