@@ -11,12 +11,20 @@ extension ForecastViewController: ForecastScreen {
 
     func showActivityIndicator() {
 
-        DispatchQueue.main.async { self.activityIndicator.startAnimating() }
+        DispatchQueue.main.async {
+
+            self.activityIndicator.startAnimating()
+            self.refreshImageButton.isUserInteractionEnabled = false
+        }
     }
 
     func hideActivityIndicator() {
 
-        DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
+        DispatchQueue.main.async {
+            
+            self.activityIndicator.stopAnimating()
+            self.refreshImageButton.isUserInteractionEnabled = true
+        }
     }
 
     func updateCityName(_ cityName: String) {

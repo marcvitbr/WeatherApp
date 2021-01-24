@@ -44,6 +44,13 @@
                                     <constraint firstAttribute="height" constant="400" id="5a5-pn-dvb"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RefreshIcon" translatesAutoresizingMaskIntoConstraints="NO" id="uu5-nr-sxK">
+                                <rect key="frame" x="15" y="44" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="SfZ-p9-aev"/>
+                                    <constraint firstAttribute="width" constant="20" id="yZL-KO-qSM"/>
+                                </constraints>
+                            </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="FHX-9Z-NA7">
                                 <rect key="frame" x="379" y="44" width="20" height="0.0"/>
                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -53,9 +60,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FHX-9Z-NA7" firstAttribute="top" secondItem="AEu-TX-abF" secondAttribute="top" id="QZq-ds-TEe"/>
+                            <constraint firstItem="uu5-nr-sxK" firstAttribute="top" secondItem="AEu-TX-abF" secondAttribute="top" id="VaG-gK-QDL"/>
                             <constraint firstItem="Dww-k0-WLE" firstAttribute="trailing" secondItem="AEu-TX-abF" secondAttribute="trailing" id="aG9-Hf-sWe"/>
                             <constraint firstItem="Dww-k0-WLE" firstAttribute="top" secondItem="FHX-9Z-NA7" secondAttribute="bottom" id="eny-a8-uI4"/>
                             <constraint firstItem="AEu-TX-abF" firstAttribute="trailing" secondItem="FHX-9Z-NA7" secondAttribute="trailing" constant="15" id="evj-rr-TWo"/>
+                            <constraint firstItem="uu5-nr-sxK" firstAttribute="leading" secondItem="AEu-TX-abF" secondAttribute="leading" constant="15" id="imB-It-ccN"/>
                             <constraint firstItem="AEu-TX-abF" firstAttribute="trailing" secondItem="5rs-nx-XOA" secondAttribute="trailing" id="jPj-AL-mDO"/>
                             <constraint firstItem="5rs-nx-XOA" firstAttribute="leading" secondItem="AEu-TX-abF" secondAttribute="leading" id="n38-E3-N4B"/>
                             <constraint firstAttribute="bottom" secondItem="5rs-nx-XOA" secondAttribute="bottom" id="q5g-Rf-vLA"/>
@@ -70,6 +79,7 @@
                         <outlet property="day2View" destination="SkB-LE-FJf" id="gOm-Bq-qFu"/>
                         <outlet property="day3View" destination="IIL-t8-cnw" id="VCB-KY-4Rp"/>
                         <outlet property="day4View" destination="yBn-np-CTZ" id="8YW-YO-cZI"/>
+                        <outlet property="refreshImageButton" destination="uu5-nr-sxK" id="fro-NX-4ec"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRA-MO-4zl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -78,6 +88,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="RefreshIcon" width="458.18600463867188" height="458.18600463867188"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
